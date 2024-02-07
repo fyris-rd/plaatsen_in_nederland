@@ -8,13 +8,13 @@ Geolocaties voor alle plaatsen in Nederland. Data verzameld uit GeoNames dump: h
 docker build -t plaatsen_in_nederland .
 ```
 
-### Gebruik
+## Gebruik
 
 ```shell
 docker run -v $(pwd):/app plaatsen_in_nederland
 ```
 
-| Field Name        | Description                                                                                                               |
+| Kolom             | Beschrijving                                                                                                              |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | geonameid         | Integer id of record in geonames database                                                                                 |
 | name              | Name of geographical point (utf8)                                                                                         |
