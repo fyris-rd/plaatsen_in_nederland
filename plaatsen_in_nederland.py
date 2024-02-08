@@ -32,8 +32,14 @@ df.columns = [
     "timezone",
     "modificationdate",
 ]
-# Subset op "populated places". Zie https://www.geonames.org/export/codes.html
-df = df.loc[df.featurecode == "PPL"]
+# Zie https://www.geonames.org/export/codes.html
+df = df.loc[
+    (df.featurecode == "PPL")  # Populated place
+    | (df.featurecode == "PPLA")  # Seat of a first-order administrative division
+    | (df.featurecode == "PPLA2")  # Seat of a second-order administrative division
+    | (df.featurecode == "PPLC")  # Capital of a political entity
+    | (df.featurecode == "PPLG")  # Seat of government of a political entity
+]
 df = df.sort_values(by="name").reset_index(drop=True).dropna(axis=1, how="all")
 
 # GeoDataFame
